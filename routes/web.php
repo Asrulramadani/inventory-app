@@ -71,5 +71,18 @@ Route::middleware(['auth'])->group(function(){
     })->name('unit');
 
 
+
+    // transaction route
+    Route::get('/transaction', function(){
+        return redirect()->route('inTransaction');
+    })->name('transaction');
+    Route::get('/transaction/in', function(){
+        return view('transaction.in');
+    })->name('inTransaction');
+    Route::get('/transaction/out', function(){
+        return view('transaction.out');
+    })->name('outTransaction');
+
+
 });
 

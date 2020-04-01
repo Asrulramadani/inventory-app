@@ -89,13 +89,6 @@
                     @csrf
                     <div class="row">
                         <div class="col mb-3">
-                            <label for="nameWithTitle" class="form-label">Kode Barang</label>
-                            <input type="text" id="nameWithTitle" class="form-control
-                            "wire:model="item_code" required>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col mb-3">
                             <label for="nameWithTitle" class="form-label">Nama Barang</label>
                             <input type="text" id="nameWithTitle" class="form-control
                             "wire:model="name" required autofocus>
@@ -155,7 +148,7 @@
                         <div class="col mb-3">
                             <label for="nameWithTitle" class="form-label">Kode Barang</label>
                             <input type="text" id="nameWithTitle" class="form-control
-                            "wire:model="item_code" required >
+                            "wire:model="item_code" required disabled >
                         </div>
                     </div>
                     <div class="row">

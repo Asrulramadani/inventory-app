@@ -25,4 +25,8 @@ class Stock extends Model
     function unit(){
         return $this->belongsTo(Unit::class, 'id_unit');
     }
+
+    public function inTransaction(){
+        return $this->hasMany(InTransaction::class, 'id_stock');
+    }
 }

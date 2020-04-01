@@ -17,13 +17,13 @@ class UserDummySeed extends Seeder
             [
                 'name'=>"admin",
                 'email'=>'admin@gmail.com',
-                'password'=>bcrypt('123456'),
+                'password'=>bcrypt('123'),
                 'role'=>'admin'
             ],
             [
                 'name'=>"operator",
                 'email'=>'operator@gmail.com',
-                'password'=>bcrypt('123456'),
+                'password'=>bcrypt('123'),
                 'role'=>'operator'
             ]
             ];

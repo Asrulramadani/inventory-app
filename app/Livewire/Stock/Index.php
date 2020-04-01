@@ -19,8 +19,6 @@ class Index extends Component
     public $unit_list;
 
 
-    public $stock;
-
     public $idEdit;
     public $item_code;
     public $name;
@@ -30,9 +28,10 @@ class Index extends Component
 
 
 
+
+
     public function create(){
         $this->validate([
-            'item_code'=>['required','min:3'],
             'name'=>['required','min:3'],
             'id_unit'=>['required','numeric'],
             'id_category'=>['required', 'numeric'],
@@ -40,7 +39,7 @@ class Index extends Component
         ]);
 
         $stock = [
-            'item_code'=>$this->item_code,
+            'item_code'=>$this->generateItemCode($this->name),
             'name'=>$this->name,
             'id_unit'=>$this->id_unit,
             'id_category'=>$this->id_category,
@@ -86,7 +85,7 @@ class Index extends Component
             ]);
 
 
-        $stock->item_code = $this->item_code;
+        $stock->item_code = $this->generateItemCode($this->name);
         $stock->name = $this->name;
         $stock->id_unit = $this->id_unit;
         $stock->id_category = $this->id_category;
@@ -112,6 +111,14 @@ class Index extends Component
         $this->id_unit = "";
         $this->id_category = "";
         $this->total_stock = "";
+    }
+
+    public function generateItemCode(){
+        $minutes = date('i');
+        $hours = date('H');
+        $itemCode = 'ITM' . $minutes . $hours . strtoupper(substr($this->name, 0, 3));
+
+        return $itemCode;
     }
 
 

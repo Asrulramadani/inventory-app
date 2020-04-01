@@ -50,14 +50,14 @@
         </ul>
       </li>
 
-      <li class="menu-item {{(request()->is('transactions/in') || request()->is('transaction/out')) ? 'active' : ''}}">
+      <li class="menu-item {{(request()->is('transaction/in') || request()->is('transaction/out')) ? 'active' : ''}}">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
           <i class="menu-icon tf-icons bx bx-transfer"></i>
           <div data-i18n="Misc">Transaksi</div>
         </a>
         <ul class="menu-sub">
           <li class="menu-item {{request()->is('transaction/in') ? 'active' : ''}}">
-            <a href="pages-misc-error.html" class="menu-link">
+            <a href="{{route('inTransaction')}}" class="menu-link">
               <div >Barang Masuk</div>
             </a>
           </li>
@@ -91,7 +91,7 @@
           <div data-i18n="Basic">Setting</div>
         </a>
       </li>
-      
+
       @endif
 
     </ul>
