@@ -62,7 +62,7 @@
             </a>
           </li>
           <li class="menu-item {{request()->is('transaction/out') ? 'active' : ''}}">
-            <a href="pages-misc-under-maintenance.html" class="menu-link">
+            <a href="{{route('outTransaction')}}" class="menu-link">
               <div >Barang Keluar</div>
             </a>
           </li>
