@@ -92,7 +92,7 @@ class In extends Component
         if ($transaction) {
             // validasi apakah total item berubah
             if($this->total_item > $this->totalItemBeforeEdit){
-                $selisih = $this->total_item + $this->totalItemBeforeEdit;
+                $selisih = $this->total_item - $this->totalItemBeforeEdit;
 
                 // cari stok dan ubah total stok
                 $stock = Stock::find($transaction->id_stock);
@@ -110,6 +110,8 @@ class In extends Component
             $transaction->total_item = $this->total_item;
             $transaction->information = $this->information ?? "-";
             $transaction->save();
+
+            session()->flash('message', "Berhasil mengubah data");
 
         }
 

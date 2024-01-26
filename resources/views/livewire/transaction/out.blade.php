@@ -14,7 +14,7 @@
     </div>
     @if (session()->has('message'))
     <div class="alert-container">
-        <div class="alert alert-success">{{session('message')}}</div>
+        <div class="alert {{session()->has('alert-class') ? session('alert-class') : "alert-success"}}">{{session('message')}}</div>
     </div>
     @endif
 

@@ -5,7 +5,7 @@
   class="light-style layout-menu-fixed"
   dir="ltr"
   data-theme="theme-default"
-  data-assets-path="/assets/"
+  data-assets-path="assets/"
 >
   <head>
     @include('template.partials.head')

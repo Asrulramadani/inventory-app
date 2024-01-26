@@ -46,6 +46,14 @@ class Out extends Component
         ]);
 
         $stock = Stock::find($this->id_stock);
+
+        if($this->total_item > $stock->stock) {
+            session()->flash("alert-class", "alert-danger");
+            session()->flash('message', "Gagal melakukan transaksi, Stok tidak mencukupi!!");
+
+            return;
+        }
+
         $stock->stock = $stock->stock - $this->total_item;
         $stock->save();
 
@@ -111,6 +119,7 @@ class Out extends Component
             $transaction->information = $this->information ?? "-";
             $transaction->save();
 
+            session()->flash('message', "Berhasil mengubah data");
         }
 
         $this->transaction_code = "";
