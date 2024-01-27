@@ -84,5 +84,11 @@ Route::middleware(['auth'])->group(function(){
     })->name('outTransaction');
 
 
+
+    // my-profile route
+    Route::get('my-profile', function(){
+        return view('my-profile.index');
+    })->name('my-profile');
+
 });
 

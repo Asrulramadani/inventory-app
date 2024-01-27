@@ -3,6 +3,8 @@
 namespace App\Livewire\User;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -38,7 +40,8 @@ class Index extends Component
             'name'=> $this->name,
             'password'=> bcrypt($this->password),
             'email'=> $this->email,
-            'role'=> $this->role
+            'role'=> $this->role,
+            'photo'=> "/assets/img/avatars/1.png"
         ];
 
         User::create($user);
@@ -51,6 +54,9 @@ class Index extends Component
     }
 
     public function delete($id){
+        if(Storage::exists(Auth::user()->photo)){
+            Storage::delete(Auth::user()->photo);
+        }
         User::destroy($id);
         session()->flash('message', "Berhasil menghapus data");
     }
@@ -94,11 +100,7 @@ class Index extends Component
             $user->save();
             session()->flash("message", "Berhasil mengubah data");
 
-            $this->name = "";
-            $this->email = "";
-            $this->password = "";
-            $this->newPassword = "";
-            $this->role = "";
+            $this->resetForm();
         }
     }
 
