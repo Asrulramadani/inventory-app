@@ -4,9 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Stock extends Model
 {
+    use SoftDeletes;
     use HasFactory;
 
     protected $fillable = [
@@ -28,5 +30,9 @@ class Stock extends Model
 
     public function inTransaction(){
         return $this->hasMany(InTransaction::class, 'id_stock');
+    }
+
+    public function outTransaction(){
+        return $this->hasMany(outTransaction::class, 'id_stock');
     }
 }

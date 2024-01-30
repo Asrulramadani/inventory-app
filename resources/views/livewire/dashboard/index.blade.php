@@ -137,12 +137,12 @@
                       </div>
                       <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                         <div class="me-2">
-                            <h6 class="mb-0">{{$in_tr->stock->name}}</h6>
+                            <h6 class="mb-0">{{$in_tr->name}}</h6>
                             <small class="text-muted d-block mb-1">{{$in_tr->updated_at}}</small>
                         </div>
                         <div class="user-progress d-flex align-items-center gap-1">
                           <h6 class="mb-0">+ {{$in_tr->total_item}}</h6>
-                          <span class="text-muted">{{$in_tr->stock->unit->name}}</span>
+                          <span class="text-muted">{{$in_tr->unit}}</span>
                         </div>
                       </div>
                     </li>
@@ -178,12 +178,12 @@
                       </div>
                       <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                         <div class="me-2">
-                            <h6 class="mb-0">{{$out_tr->stock->name}}</h6>
+                            <h6 class="mb-0">{{$out_tr->name}}</h6>
                             <small class="text-muted d-block mb-1">{{$out_tr->updated_at}}</small>
                         </div>
                         <div class="user-progress d-flex align-items-center gap-1">
                           <h6 class="mb-0">- {{$out_tr->total_item}}</h6>
-                          <span class="text-muted">{{$out_tr->stock->unit->name}}</span>
+                          <span class="text-muted">{{$out_tr->unit}}</span>
                         </div>
                       </div>
                     </li>

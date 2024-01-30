@@ -149,7 +149,7 @@ class Out extends Component
 
     public function render()
     {
-        $transactions = OutTransaction::latest()->paginate(5);
+        $transactions = OutTransaction::select('out_transactions.*', 'stocks.name AS name', 'stocks.id_unit', 'units.name AS unit', 'categories.name AS category')->join('stocks', 'out_transactions.id_stock', '=', 'stocks.id')->join('units', 'stocks.id_unit', '=', 'units.id')->join('categories', 'stocks.id_category', '=', 'categories.id')->latest()->paginate(5);
         $stocks = Stock::get();
 
         return view('livewire.transaction.out',[

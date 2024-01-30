@@ -37,10 +37,10 @@
                 @foreach ($transactions as $tr)
                 <tr>
                     <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$tr->transaction_code}}</strong></td>
-                    <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$tr->stock->name ?? ""}}</strong></td>
+                    <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$tr->name ?? ""}}</strong></td>
                     <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$tr->total_item}}</strong></td>
-                    <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$tr->stock->unit->name ?? ""}}</strong></td>
-                    <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$tr->stock->category->name ?? ''}}</strong></td>
+                    <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$tr->unit ?? ""}}</strong></td>
+                    <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$tr->category ?? ''}}</strong></td>
                     <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$tr->information != null ? $tr->information : '-'}}</strong></td>
                     <td>
                         <div class="dropdown">

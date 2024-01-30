@@ -142,7 +142,8 @@ class In extends Component
 
     public function render()
     {
-        $transactions = InTransaction::latest()->paginate(5);
+        $transactions =InTransaction::select('in_transactions.*', 'stocks.name AS name', 'stocks.id_unit', 'units.name AS unit', 'categories.name AS category')->join('stocks', 'in_transactions.id_stock', '=', 'stocks.id')->join('units', 'stocks.id_unit', '=', 'units.id')->join('categories', 'stocks.id_category', '=', 'categories.id')->latest()->paginate(5);
+
         $stocks = Stock::get();
 
         return view('livewire.transaction.in',[

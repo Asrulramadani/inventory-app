@@ -18,9 +18,14 @@ class Index extends Component
         $inTransaction = InTransaction::count();
 
 
-        $inTransactions = InTransaction::latest()->take(5)->get();
-        $outTransactions = OutTransaction::latest()->take(5)->get();
+        // $inTransactions = InTransaction::join('stocks','in_transactions.id_stock', 'stocks.id')->orderBy('in_transactions.id', 'desc')->latest()->take(5)->get();
+        $inTransactions = InTransaction::select('in_transactions.*', 'stocks.name', 'stocks.id_unit', 'units.name AS unit')->join('stocks', 'in_transactions.id_stock', '=', 'stocks.id')->join('units', 'stocks.id_unit', '=', 'units.id')->latest()->take(5)->get();
 
+        $outTransactions = OutTransaction::select('out_transactions.*', 'stocks.name', 'stocks.id_unit', 'units.name AS unit')->join('stocks', 'out_transactions.id_stock', '=', 'stocks.id')->join('units', 'stocks.id_unit', '=', 'units.id')->latest()->take(5)->get();
+
+        // $outTransactions = OutTransaction::join('stocks', 'stocks.id', 'out_transactions.id_stock')->latest()->take(5)->get();
+
+        // dd($inTransactions);
         return view('livewire.dashboard.index', [
             'stock' => $stock,
             'user' => $user,
